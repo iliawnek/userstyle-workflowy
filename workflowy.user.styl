@@ -1,18 +1,282 @@
 /* ==UserStyle==
 @name           WorkFlowy
 @namespace      github.com/iliawnek
-@version        0.1.0
+@version        1.0.0
 @description    A dark theme for WorkFlowy with alternative text formatting.
 @author         Ken Li
 @preprocessor   stylus
 ==/UserStyle== */
 
 @-moz-document domain("workflowy.com")
-  // page background
-  body
-    background: #222
-  .page
-    background-color: transparent
-    border: none
-    color: white
-  
+    bg = #222
+    bg-hover = #333
+    bg-header = none
+    bg-code = #444
+    bg-tag = #AAA
+    bg-bullet = #CCC
+    bg-bullet-done = c-highlight
+    c-regular = #CCC
+    c-bold = #FFF
+    c-highlight = #FFDB4D
+    c-dimmed = #777
+    c-bubble = #FFF
+    c-note = #777
+    c-header = #666
+    c-header-active = #FFF
+    c-search = #000
+    c-tag = #000
+
+    c-line-bullet = #444
+    c-line-title = #555
+
+    s-page-width = 800px
+    s-item-spacing = 6px
+    lh = 1.4em
+
+    ff-regular = system-ui
+    ff-code = 'Roboto Mono', 'Roboto Mono for Powerline', monospace
+    fs-regular = 16px
+    fs-note = 12px
+    fs-code = 14px
+    fs-header = 11px
+    fw-bold = 600
+
+    t = 0.1s ease-in
+
+    icon-tick = url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjlGODMzRDZGQUI0QzExRTRCNEU2RTQ1QUQ3RDg2RUZFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjlGODMzRDcwQUI0QzExRTRCNEU2RTQ1QUQ3RDg2RUZFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OUY4MzNENkRBQjRDMTFFNEI0RTZFNDVBRDdEODZFRkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OUY4MzNENkVBQjRDMTFFNEI0RTZFNDVBRDdEODZFRkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4BVcrXAAAAgklEQVR42mL8//8/AyWAiYFCwCIlJUWqHgUgXgDECUD8gIkMzQeA2B5KKzCRoVkeWxjAJBWI1PwQiB1gXsBwFrGascWCPJoheDXDDHgAFXyIZogDIc0gwCgpKYk3kPBpRvcCuksIasYWBuiG4NWMKynDDDlISDM4DAY8M1FsAECAAQBnNiy0Pn00hwAAAABJRU5ErkJggg==')
+
+    bubble =
+        background: bg-code
+        padding: 2px 3px !important
+        border-radius: 6px !important
+    header-text =
+        font-family: ff-regular
+        font-size: fs-header
+        text-transform: uppercase
+        font-weight: fw-bold
+
+    *
+        box-sizing: border-box
+    body
+        background-color: bg
+    #documentView
+        padding: 0
+        margin-bottom: 50vh
+    #pageContainer
+        margin-top: 50px
+    .page
+        background: none
+        border: none
+        font-family: ff-regular
+        padding: h-header 30px 0
+        max-width: s-page-width
+    .pageControls // top-right controls, including star
+        top: 0
+        left: 55px
+        max-width: fit-content
+        .pageStar
+            display: none
+            &.starred
+                display: block
+                opacity: 0.5
+                transform: scale(0.9)
+
+    .children // an item's children
+        border-color: c-line-bullet
+    .name // item text container
+        margin-top: s-item-spacing
+    .bullet // bullet point
+        margin-top: 3px !important
+        background-color: bg-bullet
+    .content // all text
+        color: c-regular !important
+        font-size: fs-regular
+        line-height: lh !important
+        padding: 0 !important
+    .contentBold // bold
+        font-weight: fw-bold
+        color: c-bold
+    .contentUnderline // highlight
+        text-decoration: none
+        color: c-highlight
+    .contentItalic // dimmed
+        color: c-dimmed
+        font-style: normal
+    .contentUnderline.contentItalic // code
+        font-family: ff-code
+        font-size: fs-code
+        color: c-bubble
+        {bubble}
+    .contentBold.contentItalic // line separator
+        color: c-bold
+        background-color: bg
+        padding-right: 12px
+        &::before
+            content: ''
+            z-index: -1
+            display: block
+            position: absolute
+            width: 100%
+            height: 1px
+            bottom: 10px
+            background: c-line-title
+        &.contentUnderline
+            font-size: fs-regular
+            font-family: ff-regular
+            border-radius: 0
+            color: c-highlight
+            padding: 0 !important
+            padding-right: 10px !important // space between text & line
+    .contentTag // tags
+        {bubble}
+        background-color: bg-tag
+        color: c-tag !important
+        font-weight: bold !important
+        *
+            color: c-tag !important
+            text-decoration: none !important
+            font-weight: bold !important
+        
+    .contentLink // links
+        color: inherit !important
+    .contentMatch // search results
+        color: c-search !important
+        font-weight: fw-bold !important
+        {bubble}
+        background-color: yellow !important
+    .notes // notes
+        .content
+            color: c-note !important
+            font-size: fs-note !important
+            display: block !important // always keep notes expanded
+            height: auto !important // always keep notes expanded
+    .project.done // completed items
+        *
+            color: c-dimmed !important
+            text-decoration: line-through
+        .name > .bullet
+            background-color: bg-bullet-done
+            background-image: icon-tick
+            background-repeat: no-repeat
+            background-size: 70%
+            background-position: 45% 60%
+    .project::before
+        background: bg-hover !important
+
+    // hide stuff
+    #logo
+    #savedViewHUDButton // starred pages button, right of search bar
+    .undo-button
+    .redo-button
+    #helpButton
+    #printButton
+    #reloadAppButton
+    #userEmail
+    .moreControlsButton // top right of editor, actions for currently-focused item
+    .footer
+    #bottomLinks
+        display: none !important
+
+    #header // header
+        background: bg-header
+        border: none
+        height: 50px
+        min-width: auto
+        transition: t
+        &:hover
+            background: bg-header
+        #searchForm // search box
+            position: absolute
+            width: 100%
+            height: 100%
+            top: 0
+            input
+                transition: t
+                background: none
+                border: none
+                padding-left: 25px
+                width: 100%
+                height: 100%
+                border-radius: 0
+                {header-text}
+                color: c-header-active
+                &::placeholder
+                    color: c-header
+                &:focus
+                    background: none
+        #buttonBar // top-right header buttons
+        .saveButton // top-right header buttons
+        .showCompletedButton // top-right header buttons
+            background: none
+            border: none
+            margin: 0
+            width: auto
+            height: 100%
+            padding: 0 15px
+            display: flex
+            justify-content: center
+            align-items: center
+            {header-text}
+            color: c-header
+            transition: t
+            &:hover
+                background: none
+                color: c-header-active
+                .menu-button
+                    opacity: 1
+            .topBarButtonTextContainer
+                background: bg
+        #buttonBar // header caret for more options
+            .menu-button
+                transition: t
+                opacity: 0.3
+                ../.open
+                    opacity: 1
+            .menu-options
+                background: bg-header
+                border: none
+                text-align: right
+                border-radius: 0
+                min-width: auto
+                padding: 15px 0
+                .button
+                    color: c-header
+                    padding: 5px 25px
+                    transition: t
+                    &.logout
+                        margin-top: 15px
+                    &:hover
+                        background: none
+                        color: c-header-active
+
+    #savedViewHUD
+        background-color: transparent !important
+        bottom: 0px !important
+        height: auto !important
+        overflow-x: hidden !important
+        overflow-y: auto !important
+        padding-bottom: 12px !important
+        padding-top: 12px !important
+        top: 30px !important
+        width: 375px !important
+    #savedViewHUD::-webkit-scrollbar
+        width: 10px !important
+    #savedViewHUD::-webkit-scrollbar-thumb
+        background-color: rgba(0,0,0,.2) !important
+    #savedViewHUDPageContainer
+        padding: 10px !important
+    .savedViewPage
+        background: #333 !important
+        color: #fff !important
+        display: block !important
+        height: auto !important
+        width: 310px !important
+        margin-bottom: 3px !important
+        padding: 10px !important
+        border: none !important
+    .selectedSavedViewPage
+        background: #444 !important
+    .savedViewPageFader
+        display: none !important
+    .savedViewPageSearchStringContainer
+        margin-top: 0 !important
