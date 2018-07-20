@@ -9,8 +9,8 @@ before     |  after
 :---------:|:---------:
 ![before]  |  ![after]
 
-[before]: https://i.imgur.com/KU6VPJo.png
-[after]: https://i.imgur.com/ru9f4uG.png
+[before]: https://i.imgur.com/xxHMYuf.png
+[after]: https://i.imgur.com/R9XZKfJ.png
 [WorkFlowy]: https://workflowy.com/#/b8538dfe3d51
 [UserCSS]: https://github.com/openstyles/stylus/wiki/UserCSS
 [Stylus]: https://github.com/openstyles/stylus
