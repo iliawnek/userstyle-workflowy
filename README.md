@@ -11,6 +11,6 @@ before     |  after
 
 [before]: https://i.imgur.com/xxHMYuf.png
 [after]: https://i.imgur.com/R9XZKfJ.png
-[WorkFlowy]: https://workflowy.com/#/b8538dfe3d51
+[WorkFlowy]: https://workflowy.com
 [UserCSS]: https://github.com/openstyles/stylus/wiki/UserCSS
 [Stylus]: https://github.com/openstyles/stylus
