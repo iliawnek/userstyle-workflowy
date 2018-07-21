@@ -82,6 +82,11 @@
                 opacity: 0.5
                 transform: scale(0.9)
 
+    .project.selected > .name // title item text
+        margin-bottom: 15px
+        & > .content
+            min-height: auto  // force title item to be same height as normal items
+
     .children // an item's children
         border-color: c-line-bullet
     .name // item text container
