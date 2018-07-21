@@ -27,7 +27,8 @@
     c-tag = #000
 
     c-line-bullet = #444
-    c-line-title = #555
+    c-line-title = #444
+    c-line-title-highlight = c-highlight
 
     s-page-width = 800px
     s-item-spacing = 6px
@@ -127,6 +128,8 @@
             color: c-highlight
             padding: 0 !important
             padding-right: 10px !important // space between text & line
+            &::before
+                background: c-line-title-highlight
     .contentTag // tags
         {bubble}
         background-color: bg-tag
