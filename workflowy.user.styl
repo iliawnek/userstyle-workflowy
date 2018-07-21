@@ -103,20 +103,21 @@
         font-weight: fw-bold
         color: c-bold
     .contentUnderline // highlight
+        color: c-highlight !important
         text-decoration: none
-        color: c-highlight
-    .contentItalic // dimmed
-        color: c-dimmed
+    .contentItalic // disable italics
         font-style: normal
-    .contentUnderline.contentItalic // code
+    [class="contentItalic"] // dimmed (exclusive)
+        color: c-dimmed
+    [class="contentItalic contentUnderline"] // code (exclusive)
         font-family: ff-code
         font-size: fs-code
-        color: c-bubble
+        color: c-bubble !important
         {bubble}
-    .contentBold.contentItalic // line separator
+    .contentItalic.contentBold // line separator
         color: c-bold
         background-color: bg
-        padding-right: 12px
+        padding-right: 10px
         &::before
             content: ''
             z-index: -1
@@ -126,15 +127,8 @@
             height: 1px
             bottom: 10px
             background: c-line-title
-        &.contentUnderline
-            font-size: fs-regular
-            font-family: ff-regular
-            border-radius: 0
-            color: c-highlight
-            padding: 0 !important
-            padding-right: 10px !important // space between text & line
-            &::before
-                background: c-line-title-highlight
+        &.contentUnderline::before
+            background: c-line-title-highlight
     .contentTag // tags
         {bubble}
         background-color: bg-tag
