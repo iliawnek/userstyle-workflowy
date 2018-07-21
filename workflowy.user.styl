@@ -13,6 +13,7 @@
     bg-header = none
     bg-code = #444
     bg-tag = #AAA
+    bg-tag-dimmed = #888
     bg-bullet = #CCC
     bg-bullet-done = c-highlight
     c-regular = #CCC
@@ -25,6 +26,7 @@
     c-header-active = #FFF
     c-search = #000
     c-tag = #000
+    c-tag-dimmed = #000
 
     c-line-bullet = #444
     c-line-title = #444
@@ -56,6 +58,7 @@
         text-transform: uppercase
         font-weight: fw-bold
 
+    // page
     *
         box-sizing: border-box
     body
@@ -82,47 +85,57 @@
                 opacity: 0.5
                 transform: scale(0.9)
 
-    .children // an item's children
-        border-color: c-line-bullet
-    .name // item text container
-        margin-top: s-item-spacing
+    // items
     .bullet // bullet point
         margin-top: 3px !important
         background-color: bg-bullet
-    .content // all text
-        color: c-regular !important
-        font-size: fs-regular
-        line-height: lh !important
-        padding: 0 !important
-    .contentBold // bold
-        font-weight: fw-bold
-        color: c-bold
-    .contentUnderline // highlight
-        color: c-highlight !important
-        text-decoration: none
+    .project::before // item hover container
+        background: bg-hover !important
+    .project > .children // an item's children
+        border-color: c-line-bullet
+
+    // only applies to regular items
+    .project > .name
+        margin-top: s-item-spacing
+        .content
+            color: c-regular !important
+            font-size: fs-regular
+            line-height: lh !important
+            padding: 0 !important
+        .contentBold // bold
+            font-weight: fw-bold
+            color: c-bold
+        .contentUnderline // highlight
+            color: c-highlight
+        [class="contentItalic"] // dimmed (exclusive)
+            color: c-dimmed
+        [class="contentItalic contentUnderline"] // code (exclusive)
+            font-family: ff-code
+            font-size: fs-code
+            color: c-bubble !important
+            {bubble}
+        .contentItalic.contentBold // line separator
+            background-color: bg
+            padding-right: 10px
+            &::before
+                content: ''
+                z-index: -1
+                display: block
+                position: absolute
+                width: 100%
+                height: 1px
+                bottom: 10px
+                background: c-line-title
+            &.contentUnderline::before
+                background: c-line-title-highlight
+
+    // applies to all
+    .contentBold // disable bold
+        font-weight: normal
     .contentItalic // disable italics
         font-style: normal
-    [class="contentItalic"] // dimmed (exclusive)
-        color: c-dimmed
-    [class="contentItalic contentUnderline"] // code (exclusive)
-        font-family: ff-code
-        font-size: fs-code
-        color: c-bubble !important
-        {bubble}
-    .contentItalic.contentBold // line separator
-        background-color: bg
-        padding-right: 10px
-        &::before
-            content: ''
-            z-index: -1
-            display: block
-            position: absolute
-            width: 100%
-            height: 1px
-            bottom: 10px
-            background: c-line-title
-        &.contentUnderline::before
-            background: c-line-title-highlight
+    .contentUnderline // disable underline
+        text-decoration: none
     .contentTag // tags
         {bubble}
         background-color: bg-tag
@@ -138,21 +151,30 @@
         color: c-search !important
         font-weight: fw-bold !important
         background-color: yellow !important
-    .notes // notes
-        .content
-            color: c-note !important
-            font-size: fs-note !important
-            display: block !important // always keep notes expanded
-            height: auto !important // always keep notes expanded
 
-    .project.selected > .name // title item text
+    // only applies to notes
+    .notes .content
+        color: c-note !important
+        font-size: fs-note !important
+        display: block !important // always keep notes expanded
+        height: auto !important // always keep notes expanded
+        .contentTag
+            color c-tag-dimmed
+            background: bg-tag-dimmed
+            padding: 0 2px !important
+            border-radius: 4px !important
+
+    // only applies to titles
+    .project.selected > .name
         margin-bottom: 15px
         & > .content
-            min-height: auto  // force title item to be same height as normal items
+            min-height: auto  // force title to be same height as items
             .contentItalic.contentBold
                 &::before
-                    display: none !important
-    .project.done // completed items
+                    display: none !important // never show line
+    
+    // only applies to completed items
+    .project.done
         *
             color: c-dimmed !important
             text-decoration: line-through
@@ -162,8 +184,6 @@
             background-repeat: no-repeat
             background-size: 70%
             background-position: 45% 60%
-    .project::before
-        background: bg-hover !important
 
     // hide stuff
     #logo
@@ -179,7 +199,8 @@
     #bottomLinks
         display: none !important
 
-    #header // header
+    // header
+    #header
         background: bg-header
         border: none
         height: 50px
@@ -251,6 +272,7 @@
                         background: none
                         color: c-header-active
 
+    // starred pages
     #savedViewHUD
         background-color: transparent !important
         bottom: 0px !important
