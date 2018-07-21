@@ -150,6 +150,9 @@
         margin-bottom: 15px
         & > .content
             min-height: auto  // force title item to be same height as normal items
+            .contentItalic.contentBold
+                &::before
+                    display: none !important
     .project.done // completed items
         *
             color: c-dimmed !important
