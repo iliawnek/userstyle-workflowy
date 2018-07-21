@@ -14,8 +14,10 @@
     bg-code = #444
     bg-tag = #AAA
     bg-tag-dimmed = #888
+    bg-tag-hover = c-highlight
     bg-bullet = #CCC
     bg-bullet-done = c-highlight
+    bg-bullet-hover = c-highlight
     c-regular = #CCC
     c-bold = #FFF
     c-highlight = #FFDB4D
@@ -27,6 +29,7 @@
     c-search = #000
     c-tag = #000
     c-tag-dimmed = #000
+    c-link-hover = c-highlight
 
     c-line-bullet = #444
     c-line-title = #444
@@ -56,6 +59,12 @@
         font-size: fs-header
         text-transform: uppercase
         font-weight: fw-bold
+
+    @keyframes fade-in
+        0%
+            opacity: 0
+        100%
+            opacity: 1
 
     // page
     *
@@ -89,8 +98,12 @@
     .bullet // bullet point
         margin-top: 3px !important
         background-color: bg-bullet
+        transition: t
+        &:hover
+            background-color: bg-bullet-hover !important
     .project::before // item hover container
         background: bg-hover !important
+        animation: fade-in 0.05s 1
     .project > .children // an item's children
         border-color: c-line-bullet
 
@@ -143,12 +156,18 @@
         background-color: bg-tag
         color: c-tag !important
         font-weight: bold !important
+        transition: t
         *
             color: c-tag !important
             text-decoration: none !important
             font-weight: bold !important
+        &:hover
+            background: bg-tag-hover !important
     .contentLink // links
         color: inherit !important
+        transition: t
+        &:hover
+            color: c-link-hover !important
     .contentMatch // search results
         color: c-search !important
         font-weight: fw-bold !important
