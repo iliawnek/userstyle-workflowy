@@ -175,15 +175,16 @@
     
     // only applies to completed items
     .project.done
-        *
-            color: c-dimmed !important
-            text-decoration: line-through
-        .name > .bullet
-            background-color: bg-bullet-done
-            background-image: icon-tick
-            background-repeat: no-repeat
-            background-size: 70%
-            background-position: 45% 60%
+        .name
+            .bullet
+                background-color: bg-bullet-done
+                background-image: icon-tick
+                background-repeat: no-repeat
+                background-size: 70%
+                background-position: 45% 60%
+            *
+                color: c-dimmed !important
+                text-decoration: line-through
 
     // hide stuff
     #logo
