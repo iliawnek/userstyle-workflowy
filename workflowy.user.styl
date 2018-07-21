@@ -8,46 +8,46 @@
 ==/UserStyle== */
 
 @-moz-document domain("workflowy.com")
-    bg = #222
-    bg-hover = #333
-    bg-header = none
-    bg-code = #444
-    bg-tag = #AAA
-    bg-tag-dimmed = #777
-    bg-tag-hover = c-highlight
-    bg-bullet = #CCC
-    bg-bullet-done = c-highlight
-    bg-bullet-hover = c-highlight
-    c-regular = #CCC
-    c-bold = #FFF
-    c-highlight = #FFDB4D
-    c-dimmed = #777
-    c-bubble = #FFF
-    c-note = #777
-    c-header = #666
-    c-header-active = #FFF
-    c-search = #000
-    c-tag = #000
-    c-tag-dimmed = #000
-    c-link-hover = c-highlight
+    $bg = #222
+    $bg-hover = #333
+    $bg-header = none
+    $bg-code = #444
+    $bg-tag = #AAA
+    $bg-tag-note = #777
+    $bg-tag-hover = $c-highlight
+    $bg-bullet = #CCC
+    $bg-bullet-done = $c-highlight
+    $bg-bullet-hover = $c-highlight
+    $c-regular = #CCC
+    $c-bold = #FFF
+    $c-highlight = #FFDB4D
+    $c-dimmed = #777
+    $c-bubble = #FFF
+    $c-note = #777
+    $c-header = #666
+    $c-header-active = #FFF
+    $c-search = #000
+    $c-tag = #000
+    $c-tag-dimmed = #000
+    $c-link-hover = $c-highlight
 
-    c-line-bullet = #444
-    c-line-title = #444
-    c-line-title-highlight = c-highlight
+    $c-line-bullet = #444
+    $c-line-title = #444
+    $c-line-title-highlight = $c-highlight
 
-    s-page-width = 800px
-    s-item-spacing = 3px
-    lh = 1.4em
+    $s-page-width = 800px
+    $s-item-spacing = 3px
+    $lh = 1.4em
 
-    ff-regular = system-ui
-    ff-code = 'Roboto Mono', 'Roboto Mono for Powerline', monospace
-    fs-regular = 16px
-    fs-note = 12px
-    fs-code = 14px
-    fs-header = 11px
-    fw-bold = 600
+    $ff-regular = system-ui
+    $ff-code = 'Roboto Mono', 'Roboto Mono for Powerline', monospace
+    $fs-regular = 16px
+    $fs-note = 12px
+    $fs-code = 14px
+    $fs-header = 11px
+    $fw-bold = 600
 
-    t = 0.1s ease-in
+    $t = 0.1s ease-in
 
     icon-tick = url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NDkxMSwgMjAxMy8xMC8yOS0xMTo0NzoxNiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjlGODMzRDZGQUI0QzExRTRCNEU2RTQ1QUQ3RDg2RUZFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjlGODMzRDcwQUI0QzExRTRCNEU2RTQ1QUQ3RDg2RUZFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OUY4MzNENkRBQjRDMTFFNEI0RTZFNDVBRDdEODZFRkUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OUY4MzNENkVBQjRDMTFFNEI0RTZFNDVBRDdEODZFRkUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4BVcrXAAAAgklEQVR42mL8//8/AyWAiYFCwCIlJUWqHgUgXgDECUD8gIkMzQeA2B5KKzCRoVkeWxjAJBWI1PwQiB1gXsBwFrGascWCPJoheDXDDHgAFXyIZogDIc0gwCgpKYk3kPBpRvcCuksIasYWBuiG4NWMKynDDDlISDM4DAY8M1FsAECAAQBnNiy0Pn00hwAAAABJRU5ErkJggg==')
 
@@ -55,10 +55,10 @@
         padding: 2px 3px !important
         border-radius: 6px !important
     header-text =
-        font-family: ff-regular
-        font-size: fs-header
+        font-family: $ff-regular
+        font-size: $fs-header
         text-transform: uppercase
-        font-weight: fw-bold
+        font-weight: $fw-bold
 
     @keyframes fade-in
         0%
@@ -69,9 +69,9 @@
     // page
     *
         box-sizing: border-box
-        font-family: ff-regular
+        font-family: $ff-regular
     body
-        background-color: bg
+        background-color: $bg
     #documentView
         padding: 0
         margin-bottom: 50vh
@@ -80,9 +80,9 @@
     .page
         background: none
         border: none
-        font-family: ff-regular
+        font-family: $ff-regular
         padding: h-header 30px 0
-        max-width: s-page-width
+        max-width: $s-page-width
     .pageControls // top-right controls, including star
         top: 0
         left: 55px
@@ -97,40 +97,40 @@
     // items
     .bullet // bullet point
         margin-top: 3px !important
-        background-color: bg-bullet
-        transition: t
+        background-color: $bg-bullet
+        transition: $t
         &:hover
-            background-color: bg-bullet-hover !important
+            background-color: $bg-bullet-hover !important
     .project::before // item hover container
-        background: bg-hover !important
+        background: $bg-hover !important
         animation: fade-in 0.05s 1
     .project > .children // an item's children
-        border-color: c-line-bullet
+        border-color: $c-line-bullet
 
     // only applies to regular items
     .project > .name
-        padding-top: s-item-spacing !important
-        padding-bottom: s-item-spacing !important
+        padding-top: $s-item-spacing !important
+        padding-bottom: $s-item-spacing !important
         .content
-            color: c-regular !important
-            font-size: fs-regular
-            line-height: lh !important
+            color: $c-regular !important
+            font-size: $fs-regular
+            line-height: $lh !important
             padding: 0 !important
         .contentBold // bold
-            font-weight: fw-bold
-            color: c-bold
+            font-weight: $fw-bold
+            color: $c-bold
         .contentUnderline // highlight
-            color: c-highlight
+            color: $c-highlight
         [class="contentItalic"] // dimmed (exclusive)
-            color: c-dimmed
+            color: $c-dimmed
         [class="contentItalic contentUnderline"] // code (exclusive)
             {bubble}
-            background: bg-code
-            color: c-bubble !important
-            font-family: ff-code
-            font-size: fs-code
+            background: $bg-code
+            color: $c-bubble !important
+            font-family: $ff-code
+            font-size: $fs-code
         .contentItalic.contentBold // line separator
-            background-color: bg
+            background-color: $bg
             padding-right: 10px
             &::before
                 content: ''
@@ -140,9 +140,9 @@
                 width: 100%
                 height: 1px
                 bottom: 10px
-                background: c-line-title
+                background: $c-line-title
             &.contentUnderline::before
-                background: c-line-title-highlight
+                background: $c-line-title-highlight
 
     // applies to all
     .contentBold // disable bold
@@ -153,35 +153,35 @@
         text-decoration: none
     .contentTag // tags
         {bubble}
-        background-color: bg-tag
-        color: c-tag !important
+        background-color: $bg-tag
+        color: $c-tag !important
         font-weight: bold !important
-        transition: t
+        transition: $t
         *
-            color: c-tag !important
+            color: $c-tag !important
             text-decoration: none !important
             font-weight: bold !important
         &:hover
-            background: bg-tag-hover !important
+            background: $bg-tag-hover !important
     .contentLink // links
         color: inherit !important
-        transition: t
+        transition: $t
         &:hover
-            color: c-link-hover !important
+            color: $c-link-hover !important
     .contentMatch // search results
-        color: c-search !important
-        font-weight: fw-bold !important
+        color: $c-search !important
+        font-weight: $fw-bold !important
         background-color: yellow !important
 
     // only applies to notes
     .notes .content
-        color: c-note !important
-        font-size: fs-note !important
+        color: $c-note !important
+        font-size: $fs-note !important
         display: block !important // always keep notes expanded
         height: auto !important // always keep notes expanded
         .contentTag
-            color c-tag-dimmed
-            background: bg-tag-dimmed
+            color $c-tag-dimmed
+            background: $bg-tag-note
             padding: 0 2px !important
             border-radius: 4px !important
 
@@ -198,13 +198,13 @@
     .project.done
         .name
             .bullet
-                background-color: bg-bullet-done
+                background-color: $bg-bullet-done
                 background-image: icon-tick
                 background-repeat: no-repeat
                 background-size: 70%
                 background-position: 45% 60%
             *
-                color: c-dimmed !important
+                color: $c-dimmed !important
                 text-decoration: line-through
 
     // hide stuff
@@ -223,20 +223,20 @@
 
     // header
     #header
-        background: bg-header
+        background: $bg-header
         border: none
         height: 50px
         min-width: auto
-        transition: t
+        transition: $t
         &:hover
-            background: bg-header
+            background: $bg-header
         #searchForm // search box
             position: absolute
             width: 100%
             height: 100%
             top: 0
             input
-                transition: t
+                transition: $t
                 background: none
                 border: none
                 padding-left: 25px
@@ -244,9 +244,9 @@
                 height: 100%
                 border-radius: 0
                 {header-text}
-                color: c-header-active
+                color: $c-header-active
                 &::placeholder
-                    color: c-header
+                    color: $c-header
                 &:focus
                     background: none
         #buttonBar // top-right header buttons
@@ -262,37 +262,37 @@
             justify-content: center
             align-items: center
             {header-text}
-            color: c-header
-            transition: t
+            color: $c-header
+            transition: $t
             &:hover
                 background: none
-                color: c-header-active
+                color: $c-header-active
                 .menu-button
                     opacity: 1
             .topBarButtonTextContainer
-                background: bg
+                background: $bg
         #buttonBar // header caret for more options
             .menu-button
-                transition: t
+                transition: $t
                 opacity: 0.3
                 ../.open
                     opacity: 1
             .menu-options
-                background: bg-header
+                background: $bg-header
                 border: none
                 text-align: right
                 border-radius: 0
                 min-width: auto
                 padding: 15px 0
                 .button
-                    color: c-header
+                    color: $c-header
                     padding: 5px 25px
-                    transition: t
+                    transition: $t
                     &.logout
                         margin-top: 15px
                     &:hover
                         background: none
-                        color: c-header-active
+                        color: $c-header-active
 
     // starred pages
     #savedViewHUD
